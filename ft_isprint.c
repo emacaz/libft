@@ -1,22 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emcastil <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/11 17:31:03 by emcastil          #+#    #+#             */
-/*   Updated: 2024/03/11 17:31:05 by emcastil         ###   ########.fr       */
+/*   Created: 2024/03/11 19:35:18 by emcastil          #+#    #+#             */
+/*   Updated: 2024/03/11 19:35:34 by emcastil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
-
-int	ft_isalpha(int c);
-int	ft_isdigit(int c);
-int	ft_isalnum(int c);
-int	ft_isascii(int c);
-int	ft_isprint(int c);
-
-#endif
+// Returns 1 if the character is ASCII printable
+int	ft_isprint(int c)
+{
+	return (c >= 32 && c <= 126);
+}
