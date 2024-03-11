@@ -1,19 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emcastil <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/11 17:31:03 by emcastil          #+#    #+#             */
-/*   Updated: 2024/03/11 17:31:05 by emcastil         ###   ########.fr       */
+/*   Created: 2024/03/11 17:53:42 by emcastil          #+#    #+#             */
+/*   Updated: 2024/03/11 17:53:44 by emcastil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
-
-int	ft_isalpha(int c);
-int	ft_isdigit(int c);
-
-#endif
+// Returns 1 if character is a digit, 0 otherwise
+int	ft_isdigit(int c)
+{
+	return (c >= '0' && c <= '9');
+}
