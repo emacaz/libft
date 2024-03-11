@@ -1,18 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emcastil <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/11 18:10:44 by emcastil          #+#    #+#             */
-/*   Updated: 2024/03/11 18:11:08 by emcastil         ###   ########.fr       */
+/*   Created: 2024/03/11 18:24:12 by emcastil          #+#    #+#             */
+/*   Updated: 2024/03/11 18:24:14 by emcastil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// Returns 1 if the character is alphanumeric (a-z, A-Z, or 0-9), 0 otherwise
-int	ft_isalnum(int c)
+// Returns 1 if the character is an ASCII character (0 to 127), 0 otherwise
+int	ft_isascii(int c)
 {
-	return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z')
-		|| (c >= '0' && c <= '9'));
+	return (c >= 0 && c <= 127);
 }
