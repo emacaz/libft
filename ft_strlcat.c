@@ -1,35 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emcastil <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/12 18:07:42 by emcastil          #+#    #+#             */
-/*   Updated: 2024/03/12 18:07:44 by emcastil         ###   ########.fr       */
+/*   Created: 2024/03/12 18:29:23 by emcastil          #+#    #+#             */
+/*   Updated: 2024/03/12 18:29:29 by emcastil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-// Copies 'src' to 'dst' with 'dstsize' limit
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+// Appends 'src' to 'dst' of size 'dstsize'
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
-	size_t	count;
+	size_t	j;
+	size_t	res;
 
 	i = 0;
-	count = 0;
-	while (src[count] != '\0')
-		count++;
-	if (dstsize != 0)
+	j = 0;
+	res = 0;
+	while (dst[i] != '\0')
+		i++;
+	while (src[res] != '\0')
+		res++;
+	if (dstsize <= i)
+		res += dstsize;
+	else
+		res += i;
+	while (src[j] != '\0' && (i + 1) < dstsize)
 	{
-		while (src[i] != '\0' && i < dstsize -1)
-		{
-			dst [i] = src[i];
-			i++;
-		}
+		dst[i] = src[j];
+		i++;
+		j++;
 	}
 	dst[i] = '\0';
-	return (count);
+	return (res);
 }
