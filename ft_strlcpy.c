@@ -1,45 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emcastil <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/12 16:17:52 by emcastil          #+#    #+#             */
-/*   Updated: 2024/03/12 16:18:02 by emcastil         ###   ########.fr       */
+/*   Created: 2024/03/12 18:07:42 by emcastil          #+#    #+#             */
+/*   Updated: 2024/03/12 18:07:44 by emcastil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-// Moves 'n' bytes from 'src' to 'dst' safely handling overlaps
-void	*ft_memmove(void *dst, const void *src, size_t len)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	size_t				i;
-	unsigned char		*d;
-	const unsigned char	*s;
+	size_t	i;
+	size_t	count;
 
-	d = (unsigned char *)dst;
-	s = (const unsigned char *)src;
-	if (dst == src)
-		return (dst);
-	if (d < s)
+	i = 0;
+	count = 0;
+	while (src[count] != '\0')
+		count++;
+	if (dstsize != 0)
 	{
-		i = 0;
-		while (i < len)
+		while (src[i] != '\0' && i < dstsize -1)
 		{
-			d[i] = s[i];
+			dst [i] = src[i];
 			i++;
 		}
 	}
-	else
-	{
-		i = len;
-		while (i != 0)
-		{
-			i--;
-			d[i] = s[i];
-		}
-	}
-	return (dst);
+	dst[i] = '\0';
+	return (count);
 }
