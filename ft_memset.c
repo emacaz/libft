@@ -12,7 +12,17 @@
 
 #include <string.h>
 
+// Fills 'len' bytes of memory at 'b' with byte 'c'
 void	*ft_memset(void *b, int c, size_t len)
 {
-	return (0);
+	unsigned char	*ptr;
+
+	ptr = (unsigned char *)b;
+	while (len > 0)
+	{
+		*ptr = (unsigned char)c;
+		ptr++;
+		len--;
+	}
+	return (b);
 }
