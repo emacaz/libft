@@ -15,7 +15,7 @@
 // Returns the length of the null-terminated string 's'
 size_t	ft_strlen(const char *s)
 {
-	int	i;
+	size_t	i;
 
 	if (s == NULL)
 		return (0);
