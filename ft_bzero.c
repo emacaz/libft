@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 // Sets 'n' bytes at 's' to zero
 void	ft_bzero(void *s, size_t n)

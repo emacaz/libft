@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 // Returns the length of the null-terminated string 's'
 size_t	ft_strlen(const char *s)

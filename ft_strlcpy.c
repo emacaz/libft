@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 // Copies 'src' to 'dst' with 'dstsize' limit
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)

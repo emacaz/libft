@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 // Fills 'len' bytes of memory at 'b' with byte 'c'
 void	*ft_memset(void *b, int c, size_t len)

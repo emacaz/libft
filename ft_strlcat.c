@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 // Appends 'src' to 'dst' of size 'dstsize'
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)

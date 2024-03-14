@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
-
+// Moves 'n' bytes from 'src' to 'dst' safely handling overlaps
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	size_t				i;

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 // Copies 'n' bytes from 'src' to 'dst'
 void	*ft_memcpy(void *dst, const void *src, size_t n)

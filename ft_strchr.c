@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 // Returns first concurrence found of 'c' in "s"
 char	*ft_strchr(const char *s, int c)
