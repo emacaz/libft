@@ -13,6 +13,7 @@
 #include "libft.h"
 #include <errno.h>
 
+// Allocates zero-initialized memory for 'count' elements of 'size'.
 void	*ft_calloc(size_t count, size_t size)
 {
 	size_t	total_size;

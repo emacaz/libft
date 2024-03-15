@@ -26,6 +26,7 @@ static char	*ft_strcpy(char *dst, const char *src)
 	return (dst);
 }
 
+// Duplicates the string 's1' into newly allocated memory
 char	*ft_strdup(const char *s1)
 {
 	size_t	len;
