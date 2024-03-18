@@ -9,61 +9,74 @@
 /*   Updated: 2024/03/18 20:50:54 by emcastil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
-static char	*ft_strncpy(char *dst, const char *src, size_t len)
+static	void	ft_free(char **res)
 {
-	unsigned int	i;
+	int	i;
+
+	i = -1;
+	while (res[++i])
+		free(res[i]);
+	free(res);
+}
+
+static	size_t	count_words(char const *s, char c)
+{
+	size_t	i;
+	size_t	words;
 
 	i = 0;
-	while (i < len && src[i] != '\0')
+	words = 0;
+	while (s[i])
 	{
-		dst[i] = src[i];
+		if ((s[i + 1] == c || s[i + 1] == '\0') && s[i] != c)
+			words++;
 		i++;
 	}
-	while (i < len)
+	return (words);
+}
+
+static	char	**write_result(char const *s, char c, char	**res)
+{
+	size_t	start;
+	size_t	i;
+	size_t	word;
+
+	start = 0;
+	i = 0;
+	word = 0;
+	while (s[i])
 	{
-		dst[i] = '\0';
+		if ((s[i + 1] == c || s[i + 1] == '\0') && s[i] != c)
+		{
+			res[word] = ft_substr(s, start, i - start + 1);
+			if (!res[word])
+			{
+				ft_free(res);
+				return (0);
+			}
+			word++;
+		}
+		if (s[i] == c && (s[i + 1] != c || s[i + 1] != '\0'))
+			start = i + 1;
 		i++;
 	}
-	return (dst);
+	res[word] = 0;
+	return (res);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	size_t	word_count;
 	size_t	i;
-	size_t	start;
-	size_t	end;
-	char	**new_string;
+	char	**res;
 
-	word_count = ft_strlen(s);
-	new_string = malloc(sizeof(char *) * (word_count + 1));
-	if (!new_string)
-		return (NULL);
 	i = 0;
-	start = 0;
-	while (i < word_count)
-	{
-		while (s[start] == c && s[start] != '\0')
-			start++;
-		end = start;
-		while (s[end] != '\0' && s[end] != '\0')
-			end++;
-		new_string[i] = (char *)malloc(end - start + 1);
-		if (!new_string[i])
-		{
-			while (i > 0)
-				free(new_string[i--]);
-			free(new_string);
-			return (NULL);
-		}
-		ft_strncpy(new_string[i], s + start, end - start);
-		new_string[i][end - start] = '\0';
-		start = end;
-		i++;		
-	}
-	new_string[word_count] = NULL;
-	return (new_string);
+	if (!s)
+		return (0);
+	res = malloc(sizeof(char *) * (count_words(s, c) + 1));
+	if (!res)
+		return (0);
+	res = write_result(s, c, res);
+	return (res);
 }
