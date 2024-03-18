@@ -15,21 +15,19 @@
 // Copies 'src' to 'dst' with 'dstsize' limit
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	size_t	i;
-	size_t	count;
+	size_t		src_len;
+	const char	*ptr;
 
-	i = 0;
-	count = 0;
-	while (src[count] != '\0')
-		count++;
-	if (dstsize != 0)
+	src_len = ft_strlen(src);
+	ptr = src;
+	if (!dst && !src)
+		return (0);
+	while (*src != '\0' && dstsize > 1)
 	{
-		while (src[i] != '\0' && i < dstsize -1)
-		{
-			dst [i] = src[i];
-			i++;
-		}
+		*dst++ = *src++;
+		dstsize--;
 	}
-	dst[i] = '\0';
-	return (count);
+	if (dstsize > 0)
+		*dst = '\0';
+	return (src_len);
 }
