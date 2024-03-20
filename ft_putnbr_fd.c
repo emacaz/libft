@@ -14,8 +14,19 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	char	digit;
+	long	number;
 
-	digit = n - '0';
-	write(fd, &digit, 1);
+	number = (long)n;
+	if (number < 0)
+	{
+		write(fd, "-", 1);
+		number = -number;
+	}
+	if (number > 9)
+	{
+		ft_putnbr_fd(number / 10, fd);
+		ft_putchar_fd('0' + number % 10, fd);
+	}
+	else
+		ft_putchar_fd('0' + number, fd);
 }
