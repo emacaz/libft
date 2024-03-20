@@ -34,14 +34,17 @@ all: $(NAME)
 $(NAME): $(OBJS) ${BONUS_OBJECTS}
 	$(LIB) $@ $^
 
+bonus: ${OBJS} ${BONUS_OBJECTS} $(INCLUDE)
+				@ar -rsc $(NAME) $^
+
 %.o: %.c $(INCLUDE)
 	$(CC) $(CCFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJS) ${BONUS_OBJECTS}
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) ${BONUS_OBJECTS}
 
 re: fclean all
 
