@@ -12,6 +12,7 @@
 
 #include "libft.h"
 
+// Clears the list 'lst', freeing nodes with 'del' function
 void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
 	t_list	*temporal;

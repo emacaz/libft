@@ -12,6 +12,7 @@
 
 #include "libft.h"
 
+// Calculates 'base' raised to the power of 'exp'
 long int	static	ft_base(long int base, size_t exp, int *value)
 {
 	long int	number;
@@ -25,6 +26,7 @@ long int	static	ft_base(long int base, size_t exp, int *value)
 	return (number);
 }
 
+// Converts an integer 'n' into a null-terminated string
 char	*ft_itoa(int n)
 {
 	int		value;

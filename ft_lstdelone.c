@@ -12,6 +12,7 @@
 
 #include "libft.h"
 
+// Deletes and frees a node 'lst', using 'del' for content
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
 	if (lst != NULL && del != NULL)

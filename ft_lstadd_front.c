@@ -12,6 +12,7 @@
 
 #include "libft.h"
 
+// Adds 'new' node to the beginning of the list 'lst'
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
 	if (new != NULL)

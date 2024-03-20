@@ -12,6 +12,7 @@
 
 #include "libft.h"
 
+// Copies string 'src' to 'dst', including null-terminator
 static char	*ft_strcpy(char *dst, const char *src)
 {
 	int	i;

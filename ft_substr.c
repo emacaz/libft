@@ -12,6 +12,7 @@
 
 #include "libft.h"
 
+// Copies up to 'len' chars from 'src' to 'dst'
 static char	*ft_strncpy(char *dst, const char *src, size_t len)
 {
 	unsigned int	i;

@@ -12,6 +12,7 @@
 
 #include "libft.h"
 
+// Locates 'needle' in 'haystack' within 'len' characters
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	size_t	i;

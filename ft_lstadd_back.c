@@ -12,6 +12,7 @@
 
 #include "libft.h"
 
+// Appends 'new' node at the end of the list 'lst'
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*current;

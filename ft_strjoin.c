@@ -12,6 +12,7 @@
 
 #include "libft.h"
 
+// Copies string 'src' to 'dst', including null-terminator
 static char	*ft_strcpy(char *dst, const char *src)
 {
 	size_t	i;
@@ -26,6 +27,7 @@ static char	*ft_strcpy(char *dst, const char *src)
 	return (dst);
 }
 
+// Concatenates 's1' and 's2' into a new string
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*new_str;

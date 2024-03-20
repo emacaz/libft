@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 #include "libft.h"
 
+// Frees memory allocated for each string in array 'res'
 static	void	ft_free(char **res)
 {
 	int	i;
@@ -21,6 +22,7 @@ static	void	ft_free(char **res)
 	free(res);
 }
 
+// Counts the number of words in 's' separated by char 'c'
 static	size_t	count_words(char const *s, char c)
 {
 	size_t	i;
@@ -37,6 +39,7 @@ static	size_t	count_words(char const *s, char c)
 	return (words);
 }
 
+// Writes split words into 'res', returns NULL on failure
 static	char	**write_result(char const *s, char c, char	**res)
 {
 	size_t	start;
@@ -66,6 +69,7 @@ static	char	**write_result(char const *s, char c, char	**res)
 	return (res);
 }
 
+// Splits string 's' by char 'c', returns array of strings
 char	**ft_split(char const *s, char c)
 {
 	size_t	i;
