@@ -38,7 +38,7 @@ all: $(NAME)
 $(NAME): $(OBJS) ${BONUS_OBJECTS}
 	$(LIB) $@ $^
 
-bonus: ${OBJS} ${BONUS_OBJECTS} $(INCLUDE)
+bonus: ${BONUS_OBJECTS} $(INCLUDE)
 				@ar -rsc $(NAME) $^
 
 %.o: %.c $(INCLUDE)
