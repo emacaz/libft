@@ -35,7 +35,7 @@ INCLUDE = libft.h
 
 all: $(NAME)
 
-$(NAME): $(OBJS) ${BONUS_OBJECTS}
+$(NAME): $(OBJS)
 	$(LIB) $@ $^
 
 bonus: ${BONUS_OBJECTS} $(INCLUDE)
