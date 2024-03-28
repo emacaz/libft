@@ -46,7 +46,11 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (NULL);
 	i = 0;
 	while (start < end)
-		str[i++] = s1[start++];
-	str[i] = 0;
+	{
+		str[i] = s1[start];
+		i++;
+		start++;
+	}
+	str[i] = '\0';
 	return (str);
 }
