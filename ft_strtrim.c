@@ -15,7 +15,7 @@
 // Check if char 'c' is in 'set'
 static int	ft_is_in_set(char c, char const *set)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (set[i])
