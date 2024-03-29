@@ -16,9 +16,12 @@ static	void	ft_free(char **res)
 {
 	int	i;
 
-	i = -1;
-	while (res[++i])
+	i = 0;
+	while (res[i] != NULL)
+	{
 		free(res[i]);
+		i++;
+	}
 	free(res);
 }
 
