@@ -12,38 +12,38 @@
 #include "libft.h"
 
 // Frees memory allocated for each string in array 'res'
-static	void	ft_free(char **res)
+static	void	ft_free(char **result)
 {
 	int	i;
 
 	i = 0;
-	while (res[i] != NULL)
+	while (result[i] != NULL)
 	{
-		free(res[i]);
+		free(result[i]);
 		i++;
 	}
-	free(res);
+	free(result);
 }
 
 // Counts the number of words in 's' separated by char 'c'
-static	size_t	count_words(char const *s, char c)
+static	size_t	ft_count_words(char const *s, char c)
 {
 	size_t	i;
-	size_t	words;
+	size_t	words_amount;
 
 	i = 0;
-	words = 0;
+	words_amount = 0;
 	while (s[i])
 	{
 		if ((s[i + 1] == c || s[i + 1] == '\0') && s[i] != c)
-			words++;
+			words_amount++;
 		i++;
 	}
-	return (words);
+	return (words_amount);
 }
 
-// Writes split words into 'res', returns NULL on failure
-static	char	**write_result(char const *s, char c, char	**res)
+// Writes split words into 'result', returns NULL on failure
+static	char	**ft_write_result(char const *s, char c, char	**result)
 {
 	size_t	start;
 	size_t	i;
@@ -54,12 +54,12 @@ static	char	**write_result(char const *s, char c, char	**res)
 	word = 0;
 	while (s[i])
 	{
-		if ((s[i + 1] == c || s[i + 1] == '\0') && s[i] != c)
+		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
 		{
-			res[word] = ft_substr(s, start, i - start + 1);
-			if (!res[word])
+			result[word] = ft_substr(s, start, i - start + 1);
+			if (!result[word])
 			{
-				ft_free(res);
+				ft_free(result);
 				return (0);
 			}
 			word++;
@@ -68,22 +68,22 @@ static	char	**write_result(char const *s, char c, char	**res)
 			start = i + 1;
 		i++;
 	}
-	res[word] = 0;
-	return (res);
+	result[word] = 0;
+	return (result);
 }
 
 // Splits string 's' by char 'c', returns array of strings
 char	**ft_split(char const *s, char c)
 {
 	size_t	i;
-	char	**res;
+	char	**result;
 
 	i = 0;
 	if (!s)
 		return (0);
-	res = malloc(sizeof(char *) * (count_words(s, c) + 1));
-	if (!res)
+	result = malloc(sizeof(char *) * (ft_count_words(s, c) + 1));
+	if (!result)
 		return (0);
-	res = write_result(s, c, res);
-	return (res);
+	result = ft_write_result(s, c, result);
+	return (result);
 }
