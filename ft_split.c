@@ -35,7 +35,7 @@ static	size_t	ft_count_words(char const *s, char c)
 	words_amount = 0;
 	while (s[i])
 	{
-		if ((s[i + 1] == c || s[i + 1] == '\0') && s[i] != c)
+		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
 			words_amount++;
 		i++;
 	}
@@ -54,7 +54,7 @@ static	char	**ft_write_result(char const *s, char c, char	**result)
 	word = 0;
 	while (s[i])
 	{
-		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
+		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0')) // stuck...
 		{
 			result[word] = ft_substr(s, start, i - start + 1);
 			if (!result[word])
