@@ -39,7 +39,7 @@ $(NAME): $(OBJS)
 	$(LIB) $@ $^
 
 bonus: ${BONUS_OBJECTS} $(INCLUDE)
-				@ar -rsc $(NAME) $^
+	@ar -rsc $(NAME) $^
 
 %.o: %.c $(INCLUDE)
 	$(CC) $(CCFLAGS) -c $< -o $@
@@ -53,3 +53,4 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
+ 
