@@ -17,6 +17,8 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
 	t_list	*temporal;
 
+	if (!lst || !del)
+		return ;
 	while (*lst)
 	{
 		temporal = (*lst)-> next;
