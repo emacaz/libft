@@ -15,14 +15,14 @@
 // Returns last concurrence found of 'c' in "s"
 char	*ft_strrchr(const char *s, int c)
 {
-	size_t		s_len;
+	int		s_len;
 
-	s_len = ft_strlen(s) - 1;
-	while (s[s_len] != 0)
+	s_len = ft_strlen(s);
+	while (s_len >= 0)
 	{
 		if (s[s_len] == (char) c)
-			return ((char *) s);
+			return ((char *)&s[s_len]);
 		s_len--;
 	}
-	return (0);
+	return (NULL);
 }

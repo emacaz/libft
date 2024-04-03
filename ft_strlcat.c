@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
+#include <string.h>
 
 // Appends 'src' to 'dst' of size 'dstsize'
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
@@ -38,4 +40,16 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	}
 	dst[i] = '\0';
 	return (res);
+}
+
+int	main(void)
+{
+	char *dst = "Hello";
+	const char *src = " world";
+	size_t len = 5;
+
+	// printf("%zu\n", ft_strlcat(dst, src, len));
+	printf("%zu\n", strlcat(dst, src, len));
+
+	return (0);
 }
