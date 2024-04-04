@@ -15,7 +15,7 @@
 // Returns the last node in the list 'lst'
 t_list	*ft_lstlast(t_list *lst)
 {
-	if (lst == NULL)
+	if (!lst)
 		return (NULL);
 	while (lst -> next != NULL)
 		lst = lst -> next;
