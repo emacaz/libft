@@ -15,41 +15,24 @@
 #include <string.h>
 
 // Appends 'src' to 'dst' of size 'dstsize'
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	size_t	i;
-	size_t	j;
-	size_t	res;
+	size_t	dest_len;
+	size_t	src_len;
+	size_t	len;
 
-	i = 0;
-	j = 0;
-	res = 0;
-	while (dst[i] != '\0')
-		i++;
-	while (src[res] != '\0')
-		res++;
-	if (dstsize <= i)
-		res += dstsize;
+	dest_len = 0;
+	src_len = ft_strlen(src);
+	if ((src == NULL || dest == NULL) && size < 1)
+		return (0);
+	while (*(dest + dest_len) && dest_len < size)
+		dest_len++;
+	if (size > dest_len)
+		len = dest_len + src_len;
 	else
-		res += i;
-	while (src[j] != '\0' && (i + 1) < dstsize)
-	{
-		dst[i] = src[j];
-		i++;
-		j++;
-	}
-	dst[i] = '\0';
-	return (res);
-}
-
-int	main(void)
-{
-	char *dst = "Hello";
-	const char *src = " world";
-	size_t len = 5;
-
-	// printf("%zu\n", ft_strlcat(dst, src, len));
-	printf("%zu\n", strlcat(dst, src, len));
-
-	return (0);
+		return (size + src_len);
+	while (*src && (dest_len + 1) < size)
+		dest[dest_len++] = *src++;
+	dest[dest_len] = '\0';
+	return (len);
 }
