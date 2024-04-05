@@ -75,10 +75,8 @@ static	char	**ft_write_result(char const *s, char c, char	**result)
 // Splits string 's' by char 'c', returns array of strings
 char	**ft_split(char const *s, char c)
 {
-	size_t	i;
 	char	**result;
 
-	i = 0;
 	if (!s)
 		return (0);
 	result = malloc(sizeof(char *) * (ft_count_words(s, c) + 1));
